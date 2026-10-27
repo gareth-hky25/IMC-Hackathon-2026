@@ -1,0 +1,4 @@
+requests
+sseclient-py
+websockets
+truststore
