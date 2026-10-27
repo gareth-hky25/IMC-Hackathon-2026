@@ -151,10 +151,6 @@ The intended use was a directional bet when the market traded well away from the
 - **Sweeps blocked by the guard.** Most sweep opportunities were skipped for lack of position-guard capacity. Reserving capacity for sweeps, or cancelling resting quotes first when a large sweep appears, would use more of them.
 - **Sizes are not optimised.** The spread multiplier (0.15σ), skew strength and sizes came from reasoning, not a parameter search, because there was no historical data to fit them on. With recorded Coinbase and exchange data I would tune them with a replay.
 
-## How it was built
-
-I split the work between two Claude agents in Claude Code. Claude Opus researched the strategy and calibrated it on live public Coinbase data, producing the written specifications in `docs/`. Claude Sonnet implemented them in Python on top of the exchange's starter SDK (`base_bot.py` and `models.py`, left unmodified). I directed both, chose which data sources to try, set the priorities and tested the bot against the live exchange, which is where the bugs in section 7 were found.
-
 ## Files
 
 - `bot/models_fv.py`: TRADES and RANGE fair value, uncertainty and floor models.
